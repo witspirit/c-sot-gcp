@@ -5,5 +5,7 @@
 </head>
 <body>
 Welcome, ${user.nickname}
+<hr/>
+${items}
 </body>
 </html>

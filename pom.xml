@@ -28,6 +28,12 @@
             <version>${appengine.target.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-storage</artifactId>
+            <version>v1-rev7-1.19.0</version>
+        </dependency>
+
         <!-- Adding Spring MVC -->
         <dependency>
             <groupId>org.springframework</groupId>
