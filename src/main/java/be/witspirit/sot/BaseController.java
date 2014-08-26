@@ -1,5 +1,8 @@
 package be.witspirit.sot;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -21,6 +24,15 @@ public class BaseController {
 
         if (currentUser != null) {
             model.addAttribute("user", currentUser);
+
+            // Store some data
+            DatastoreService service = DatastoreServiceFactory.getDatastoreService();
+
+            Entity greeting = new Entity("Greeting");
+            greeting.setProperty("user", currentUser);
+
+            service.put(greeting);
+
         } else {
             // Something funky still here... .jsp gets added somewhere
             return userService.createLoginURL(request.getRequestURI());
